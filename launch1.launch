@@ -1,0 +1,30 @@
+<launch>
+
+    <!-- EXAMPLE OF DEFINING AN INPUT ARGUMENT -->
+    <arg name="alsopython" default="true" />
+
+    <!-- START A GROUP WITH A NAMESPACE -->
+    <group ns="mrp">
+        <!-- LAUNCH A "Plain C++" NODE -->
+
+        <!-- USE THE INPUT ARGUMENT IN AN IF-STATEMENT  -->
+        <group if="$(arg alsopython)">
+            <!-- LAUNCH A "Plain Python" NODE -->
+            <node
+                pkg    = "my_robotics_pkg"
+                name   = "AAASS"
+                output = "screen"
+                type   = "node1.py"
+            />
+
+            <node
+                pkg    = "my_robotics_pkg"
+                name   = "BBBBB"
+                output = "screen"
+                type   = "node2.py"
+            />
+
+        </group>
+    </group>
+
+</launch>
